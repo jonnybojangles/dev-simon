@@ -1,0 +1,115 @@
+$color-one: paleturquoise;
+$color-two: goldenrod;
+$color-three: plum;
+$color-four: darkorange;
+$radius: 40px;
+$border: 5px;
+
+/*
+ * Handles the color manipulation for gradients for a tile.
+*/
+@mixin tile-effects($color, $x, $y) {
+  background: $color;
+  background: radial-gradient(at $x $y, $color, ($color - 100));
+  &:hover,
+  &.active {
+    background: radial-gradient(at $x $y, ($color - 25), ($color + 25));
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 10px;
+  background: dimgrey;
+}
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  background: dimgrey;
+  position: relative;
+  z-index: 1;
+}
+.cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0, 0.8);
+}
+.tile {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  border: $border/2 solid #fff;
+  z-index: 1;
+}
+.tile.active {
+  box-shadow: inset 0 0 10px rgba(0,0,0, 0.8);
+}
+
+
+.one {
+  top: 0;
+  left: 0;
+  border-radius: $radius 0 0 0;
+  border-top-width: $border;
+  border-left-width: $border;
+  @include tile-effects($color-one, bottom, right);
+}
+.two {
+  top: 0;
+  right: 0;
+  border-radius: 0 $radius 0 0;
+  border-top-width: $border;
+  border-right-width: $border;
+  @include tile-effects($color-two, bottom, left);
+}
+.three {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 0 $radius;
+  border-left-width: $border;
+  border-bottom-width: $border;
+  @include tile-effects($color-three, top, right);
+}
+.four {
+  bottom: 0;
+  right: 0;
+  border-radius: 0 0 $radius 0;
+  border-bottom-width: $border;
+  border-right-width: $border;
+  @include tile-effects($color-four, top, left);
+}
+.button {
+  position: relative;
+  width: 35%;
+  height: 35%;
+  border-radius: 40%;
+  border: 10px solid #fff;
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from((white - 10)), to((white - 90)));
+  z-index: 2;
+  margin: 0 auto;
+  display: none;
+}
+.button.one {
+  background: radial-gradient($color-one, ($color-one - 100));
+}
+.button.two {
+  background: radial-gradient($color-two, ($color-two - 100));
+}
+.button.three {
+  background: radial-gradient($color-three, ($color-three - 100));
+}
+.button.four {
+  background: radial-gradient($color-four, ($color-four - 100));
+}

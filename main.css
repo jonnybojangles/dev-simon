@@ -1,0 +1,110 @@
+/*
+ * Handles the color manipulation for gradients for a tile.
+*/
+* {
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  padding: 10px;
+  background: dimgrey; }
+
+.table {
+  display: table;
+  width: 100%;
+  height: 100%;
+  background: dimgrey;
+  position: relative;
+  z-index: 1; }
+
+.cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); }
+
+.tile {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  border: 2.5px solid white;
+  z-index: 1; }
+
+.tile.active {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8); }
+
+.one {
+  top: 0;
+  left: 0;
+  border-radius: 40px 0 0 0;
+  border-top-width: 5px;
+  border-left-width: 5px;
+  background: paleturquoise;
+  background: radial-gradient(at bottom right, paleturquoise, #4b8a8a); }
+  .one:hover, .one.active {
+    background: radial-gradient(at bottom right, #96d5d5, #c8ffff); }
+
+.two {
+  top: 0;
+  right: 0;
+  border-radius: 0 40px 0 0;
+  border-top-width: 5px;
+  border-right-width: 5px;
+  background: goldenrod;
+  background: radial-gradient(at bottom left, goldenrod, #764100); }
+  .two:hover, .two.active {
+    background: radial-gradient(at bottom left, #c18c07, #f3be39); }
+
+.three {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 0 40px;
+  border-left-width: 5px;
+  border-bottom-width: 5px;
+  background: plum;
+  background: radial-gradient(at top right, plum, #793c79); }
+  .three:hover, .three.active {
+    background: radial-gradient(at top right, #c487c4, #f6b9f6); }
+
+.four {
+  bottom: 0;
+  right: 0;
+  border-radius: 0 0 40px 0;
+  border-bottom-width: 5px;
+  border-right-width: 5px;
+  background: darkorange;
+  background: radial-gradient(at top left, darkorange, #9b2800); }
+  .four:hover, .four.active {
+    background: radial-gradient(at top left, #e67300, #ffa519); }
+
+.button {
+  position: relative;
+  width: 35%;
+  height: 35%;
+  border-radius: 40%;
+  border: 10px solid #fff;
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(whitesmoke), to(#a5a5a5));
+  z-index: 2;
+  margin: 0 auto;
+  display: none; }
+
+.button.one {
+  background: radial-gradient(paleturquoise, #4b8a8a); }
+
+.button.two {
+  background: radial-gradient(goldenrod, #764100); }
+
+.button.three {
+  background: radial-gradient(plum, #793c79); }
+
+.button.four {
+  background: radial-gradient(darkorange, #9b2800); }
+
+/*@ sourceMappingURL=main.css.map */
